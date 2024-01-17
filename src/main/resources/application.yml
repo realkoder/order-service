@@ -1,0 +1,24 @@
+server:
+  shutdown: graceful
+  port: 9002
+  netty:
+    connection-timeout: 2s # How long to wait for a TCP connection
+    idle-timeout: 15s # How long to wait before closing TCP connection if no data transferred
+
+spring:
+  application:
+    name: order-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15 # Defines a 15 sec grace period
+  r2dbc:
+    username: user
+    password: password
+    url: r2dbc:postgresql://localhost:5432/polardb_order
+    pool:
+      max-create-connection-time: 2s
+      initial-size: 5
+      max-size: 10
+  flyway:
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
+    url: jdbc:postgresql://localhost:5432/polardb_order
