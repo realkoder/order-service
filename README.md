@@ -8,3 +8,7 @@ for this one case doesn’t impact the overall application’s
 scalability and efficiency.
 That's why JDBC dependency is implemented to configure the
 db through flyway.
+
+---
+`Reactor map vs flatmap`
+![Flatmap VS Map for reactor](img/MapVSFlatMapReactor.png)
