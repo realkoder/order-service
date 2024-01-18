@@ -21,7 +21,7 @@ public record Order(
         Instant createdDate,
 
         @LastModifiedDate
-        Instant lastmodifiedDate,
+        Instant lastModifiedDate,
         @Version
         int version
 ) {
