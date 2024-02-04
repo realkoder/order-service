@@ -44,13 +44,20 @@ spring:
         dispathcOrder-in-0:
           destination: order-dispatched # Actual name which binder binds (exchange in RabbitMQ)
           group: {spring.application.name}
+        acceptOrder-out-0:
+          destination: order-accepted
+      rabbit:
+        bindings:
+          acceptedOrder-out-0:
+            producer:
+              transacted: true # Makes the binding transactional - see submitOrder func within OrderService.class
 
   rabbitmq:
     host: localhost
     port: 5672
     username: user
     password: password
-    connection-timeout: 5s
+    connection-timeout: 5
 
 polar:
   catalog-service-uri: "http://localhost:9001"
